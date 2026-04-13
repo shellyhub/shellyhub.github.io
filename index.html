@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shellylover.</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #4da6ff;
+            --primary-dark: #2b8fe6;
+            --primary-light: #b3daff;
+            --bg: #f0f8ff;
+            --white: #ffffff;
+            --text: #1a3a52;
+            --text-light: #5a7a8a;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--bg), var(--white), var(--primary-light));
+            min-height: 100vh;
+            color: var(--text);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px 40px;
+        }
+
+        .logo {
+            font-size: 4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+            filter: drop-shadow(0 0 20px rgba(77,166,255,0.6));
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            color: var(--text-light);
+        }
+
+        .hero-card {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 40px;
+            margin-bottom: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hero-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 25px 70px rgba(77,166,255,0.25);
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+        }
+
+        .script-box {
+            background: #0d1f2d;
+            border-radius: 16px;
+            padding: 25px;
+            position: relative;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .script-box:hover {
+            box-shadow: 0 0 25px rgba(77,166,255,0.4);
+        }
+
+        .script-label {
+            color: var(--primary-light);
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+        }
+
+        .script-code {
+            color: #e6f3ff;
+            font-family: monospace;
+            word-break: break-all;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .copy-btn:hover {
+            transform: scale(1.08);
+            box-shadow: 0 0 15px rgba(77,166,255,0.6);
+        }
+
+        .copy-btn.copied {
+            background: #34d399;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .info-card {
+            background: white;
+            padding: 25px;
+            border-radius: 16px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(77,166,255,0.25);
+        }
+
+        .info-card h3 {
+            color: var(--primary-dark);
+            margin-bottom: 10px;
+        }
+
+        .discord-section {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 24px;
+            padding: 40px;
+            text-align: center;
+            color: white;
+            margin-top: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .discord-section:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 40px rgba(77,166,255,0.5);
+        }
+
+        /* Discord copy */
+        .discord-copy {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: white;
+            color: #2b8fe6;
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-weight: 700;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .discord-copy:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255,255,255,0.4);
+        }
+
+        .copy-discord-btn {
+            background: #4da6ff;
+            border: none;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .copy-discord-btn:hover {
+            transform: scale(1.08);
+            box-shadow: 0 0 15px rgba(77,166,255,0.7);
+        }
+
+        .copy-discord-btn.copied {
+            background: #34d399;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: var(--text-light);
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <header>
+        <h1 class="logo">shellylover.</h1>
+        <p class="tagline">Premium Roblox Script</p>
+    </header>
+
+    <div class="hero-card">
+        <h2 class="section-title">Script</h2>
+
+        <div class="script-box">
+            <button class="copy-btn" onclick="copyScript()">Copy</button>
+            <div class="script-label">Loadstring</div>
+            <code class="script-code">
+loadstring(game:HttpGet("https://raw.githubusercontent.com/shellyhub/glacierpf/refs/heads/main/obfuscated_script-1776037698366.lua"))()
+            </code>
+        </div>
+    </div>
+
+    <div class="info-grid">
+        <div class="info-card">
+            <h3>Executor</h3>
+            <p>Works best with Potassium executor.</p>
+        </div>
+
+        <div class="info-card">
+            <h3>Key</h3>
+            <p>DM shellylover on Discord to get access.</p>
+        </div>
+    </div>
+
+    <div class="discord-section">
+        <h2>Contact</h2>
+
+        <div class="discord-copy">
+            <span id="discordUser">shellylover.</span>
+            <button onclick="copyDiscord()" class="copy-discord-btn">Copy</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>shellylover. © 2025</p>
+    </footer>
+</div>
+
+<script>
+function copyScript() {
+    const script = 'loadstring(game:HttpGet("https://raw.githubusercontent.com/shellyhub/glacierpf/refs/heads/main/obfuscated_script-1776037698366.lua"))()';
+    navigator.clipboard.writeText(script).then(() => {
+        const btn = document.querySelector('.copy-btn');
+        btn.textContent = "Copied!";
+        btn.classList.add("copied");
+
+        setTimeout(() => {
+            btn.textContent = "Copy";
+            btn.classList.remove("copied");
+        }, 2000);
+    });
+}
+
+function copyDiscord() {
+    const text = document.getElementById("discordUser").innerText;
+    navigator.clipboard.writeText(text).then(() => {
+        const btn = document.querySelector(".copy-discord-btn");
+        btn.textContent = "Copied!";
+        btn.classList.add("copied");
+
+        setTimeout(() => {
+            btn.textContent = "Copy";
+            btn.classList.remove("copied");
+        }, 2000);
+    });
+}
+</script>
+
+</body>
+</html>
